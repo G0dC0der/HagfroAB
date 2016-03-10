@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hagfro - Kontakt</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="scripts/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/soyutils.js"></script>
+    <script type="text/javascript" src="scripts/soy/pagestuff.soy.js"></script>
+    <script type="text/javascript" src="scripts/hagfro.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+            $(function(){
+                Hagfro.construct({
+                    'title': 'Intresseanmälan',
+                    'renderTrademark': true
+                });
+                Hagfro.constructMap('maps-section');
+            });
+        </script>
+</head>
+<body>
+    <div class="page-main-content">
+        <input type="radio" name="type" value="familyhome" checked="checked"> Anmälan för familjehem<br>
+        <input type="radio" name="type" value="contactperson"> Anmälan för kontaktperson<br>
+
+        <div class="email-section signup">
+            <input type="text" name="forname" placeholder="Förnamn"><br>
+            <input type="text" name="lastname" placeholder="Efternamn"><br>
+            <input type="text" name="cellphone" placeholder="Telefon"><br>
+            <input type="text" name="email" placeholder="E-Post"><br>
+            <input type="text" name="zipcode" placeholder="Postnummer"><br>
+            <input class="send-button" type="submit" value="Anmäl">
+        </div>
+        <div class="clearer"></div>
+    </div>
+</body>
+</html>

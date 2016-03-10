@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hagfro - Kontakt</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="scripts/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/soyutils.js"></script>
+    <script type="text/javascript" src="scripts/soy/pagestuff.soy.js"></script>
+    <script type="text/javascript" src="scripts/hagfro.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+            $(function(){
+                Hagfro.construct({
+                    'title': 'Kontakta Oss',
+                    'renderTrademark': true
+                });
+                Hagfro.constructMap('maps-section');
+            });
+        </script>
+</head>
+<body>
+    <div class="page-main-content">
+        <div class="address-section">
+            <p><span class="contact-key">Telefon:</span><span class="contact-value">0720103184</span></p>
+            <p><span class="contact-key">E-post:</span><span class="contact-value">info@hagfro.se</span></p>
+            <p><span class="contact-key">Adress:</span><span class="contact-value">Dackevägen 33</span></p>
+            <p><span class="contact-key">Post Nr:</span><span class="contact-value">SE-177 34 Järfälla</span></p>
+
+            <div id="maps-section"></div>
+        </div>
+
+        <form action="MAILTO:pojahn@gmail.com" method="post" enctype="text/plain" class="email-section">
+            <input type="text" name="name" placeholder="Namn"><br>
+            <input type="text" name="mail" placeholder="E-Post"><br>
+            <input type="text" name="subject" placeholder="Ämne"><br>
+            <textarea rows="29" name="message" placeholder="Meddelande"></textarea>
+            <input class="send-button" type="submit" value="Skicka">
+        </form>
+        <div class="clearer"></div>
+    </div>
+</body>
+</html>

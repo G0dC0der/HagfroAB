@@ -1,10 +1,64 @@
 {namespace se.hagfro}
 
 /**
- * @param TEST
+ * @param pages An array of data
+ * @param title The title of the page
+ * @param renderTrademark boolean
  */
-{template .test}
-    <div>
-        CRAP! {$TEST}
+{template .renderSite}
+    <div class="page">
+        {call .renderHeader}
+            {param pages: $pages/}
+        {/call}
+
+        {if $renderTrademark}
+            {call .trademarks /}
+        {/if}
+
+        <div class="page-content">
+            <div class="page-title">{$title}</div>
+            <div class="short-line"></div>
+        </div>
+
+        <div class="clearer" style="padding-bottom:50px;"></div>
+        <div class="bottom-sapce"></div>
+        <div class="footer"><span class="footer-text">© HagFro AB 2015</span></div>
     </div>
+{/template}
+
+/**
+ * @param pages The pages of the header
+ */
+{template .renderHeader}
+    <div class="menu">
+        <ul>
+            {foreach $page in $pages}
+                {if $page.selected}
+                    <li class="tab-selected"><span class="fake-a">{$page.title}</span></li>
+                {else}
+                    <li><a href="{$page.url}">{$page.title}</a></li>
+                {/if}
+            {/foreach}
+        </ul>
+    </div>
+    <hr class="separator"/>
+{/template}
+
+/**
+ * Renders the trademarks.
+ */
+{template .trademarks}
+    <div class="welcome-dialog">
+        <div class="welcome-dialog-welcome">Välkommen till</div>
+        <div class="welcome-dialog-welcome welcome-dialog-hagfro">HagFro AB</div>
+        <div class="welcome-dialog-desc">Kunskap för integration</div>
+    </div>
+
+    <div class="trademark">
+        <div class="trademark-left">HF</div>
+        <div class="trademark-middle"></div>
+        <div class="trademark-right">HagFro AB</div>
+    </div>
+
+    <div class="clearer" style="padding-bottom:50px;"></div>
 {/template}
