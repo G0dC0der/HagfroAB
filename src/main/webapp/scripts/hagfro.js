@@ -18,7 +18,7 @@ $(function(){
                     'selected': page === 'home.html'
                 },
                 {
-                    'title': 'Hagfro',
+                    'title': 'HagFro',
                     'url': 'hagfro.html',
                     'selected': page === 'hagfro.html'
                 },
