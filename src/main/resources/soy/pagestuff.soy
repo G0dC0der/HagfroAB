@@ -7,12 +7,15 @@
  */
 {template .renderSite}
     <div class="page">
+        {if $renderTrademark}
+            {call .renderLogo /}
+        {/if}
         {call .renderHeader}
             {param pages: $pages/}
         {/call}
 
         {if $renderTrademark}
-            {call .trademarks /}
+            {call .renderWelcome /}
         {/if}
 
         <div class="page-content">
@@ -45,20 +48,22 @@
 {/template}
 
 /**
+ * Renders the image logo
+ */
+{template .renderLogo}
+    <div class="hagfro-logo">
+        <img src="img/logo.png"/>
+    </div>
+{/template}
+
+/**
  * Renders the trademarks.
  */
-{template .trademarks}
+{template .renderWelcome}
     <div class="welcome-dialog">
         <div class="welcome-dialog-welcome">Välkommen till</div>
         <div class="welcome-dialog-welcome welcome-dialog-hagfro">HagFro AB</div>
         <div class="welcome-dialog-desc">Kunskap för integration</div>
     </div>
-
-    <div class="trademark">
-        <div class="trademark-left">HF</div>
-        <div class="trademark-middle"></div>
-        <div class="trademark-right">HagFro AB</div>
-    </div>
-
-    <div class="clearer" style="padding-bottom:50px;"></div>
+    <div class="clearer" style="padding-bottom:0px;"></div>
 {/template}

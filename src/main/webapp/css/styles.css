@@ -72,10 +72,15 @@ html {
     clear: both;
 }
 
+.hagfro-logo {
+    position: absolute;
+    margin-top: -10px;
+}
+
 .welcome-dialog {
-    float:left;
-    padding:20px;
-    margin-left: 40px;
+    float:right;
+    padding:35px;
+    margin-right: 20px;
 }
 
 .welcome-dialog-welcome {
@@ -246,6 +251,8 @@ html {
   margin-bottom:5px;
   border: solid 1px #dcdcdc;
   transition: box-shadow 0.3s, border 0.3s;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size:14px;
 }
 
 #maps-section {
@@ -305,4 +312,8 @@ html {
 .footer-text:hover{
     text-decoration:underline;
     cursor:pointer;
+}
+
+.contact-page {
+
 }

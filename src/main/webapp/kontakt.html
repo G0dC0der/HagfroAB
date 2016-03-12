@@ -22,23 +22,25 @@
 </head>
 <body>
     <div class="page-main-content">
-        <div class="address-section">
-            <p><span class="contact-key">Telefon:</span><span class="contact-value">072 010 31 84</span></p>
-            <p><span class="contact-key">E-post:</span><span class="contact-value">info@hagfro.se</span></p>
-            <p><span class="contact-key">Adress:</span><span class="contact-value">Dackevägen 33</span></p>
-            <p><span class="contact-key">Post Nr:</span><span class="contact-value">SE-177 34 Järfälla</span></p>
+        <div class="contact-page">
+            <div class="address-section">
+                <p><span class="contact-key">Telefon:</span><span class="contact-value">072 010 31 84</span></p>
+                <p><span class="contact-key">E-post:</span><span class="contact-value">info@hagfro.se</span></p>
+                <p><span class="contact-key">Adress:</span><span class="contact-value">Dackevägen 33</span></p>
+                <p><span class="contact-key">Post Nr:</span><span class="contact-value">SE-177 34 Järfälla</span></p>
 
-            <div id="maps-section"></div>
+                <div id="maps-section"></div>
+            </div>
+
+            <form action="MAILTO:pojahn@gmail.com" method="post" enctype="text/plain" class="email-section">
+                <input type="text" name="name" placeholder="Namn"><br>
+                <input type="text" name="mail" placeholder="E-Post"><br>
+                <input type="text" name="subject" placeholder="Ämne"><br>
+                <textarea rows="29" name="message" placeholder="Meddelande"></textarea>
+                <input class="send-button" type="submit" value="Skicka">
+            </form>
+            <div class="clearer"></div>
         </div>
-
-        <form action="MAILTO:pojahn@gmail.com" method="post" enctype="text/plain" class="email-section">
-            <input type="text" name="name" placeholder="Namn"><br>
-            <input type="text" name="mail" placeholder="E-Post"><br>
-            <input type="text" name="subject" placeholder="Ämne"><br>
-            <textarea rows="29" name="message" placeholder="Meddelande"></textarea>
-            <input class="send-button" type="submit" value="Skicka">
-        </form>
-        <div class="clearer"></div>
     </div>
 </body>
 </html>
