@@ -17,6 +17,7 @@
                     'renderTrademark': true
                 });
                 Hagfro.constructMap('maps-section');
+                Hagfro.emailField();
             });
         </script>
 </head>
@@ -32,11 +33,12 @@
                 <div id="maps-section"></div>
             </div>
 
-            <form action="MAILTO:pojahn@gmail.com" method="post" enctype="text/plain" class="email-section">
-                <input type="text" name="name" placeholder="Namn"><br>
-                <input type="text" name="mail" placeholder="E-Post"><br>
-                <input type="text" name="subject" placeholder="Ämne"><br>
-                <textarea rows="23" name="message" placeholder="Meddelande"></textarea>
+            <form action="http://formspree.io/pojahn@gmail.com" method="post" enctype="text/plain" class="email-section">
+                <input type="text" name="name" class="resetable" placeholder="Namn"><br>
+                <input type="text" name="_replyto" class="resetable"placeholder="E-Post"><br>
+                <input type="text" name="subject" class="resetable" placeholder="Ämne"><br>
+                <textarea rows="23" name="message" class="resetable" placeholder="Meddelande"></textarea>
+                <input type="hidden" name="_subject" value="Support" />
                 <input class="send-button" type="submit" value="Skicka">
             </form>
             <div class="clearer"></div>

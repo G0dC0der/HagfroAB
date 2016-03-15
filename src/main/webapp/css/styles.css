@@ -245,7 +245,7 @@ html {
     width:30%;
 }
 
-.email-section input[type="text"], textarea {
+.email-section input[type="text"], input[type="email"], textarea {
   width:100%;
   padding: 5px;
   margin-bottom:5px;

@@ -69,4 +69,12 @@ $(function(){
         });
         marker.setMap(map);
     };
+
+    Hagfro.emailField = function() {
+        var form = $('form');
+        $('.send-button').click(function(){
+            alert('Tack för intresset!');
+            $('.resetable').val('');
+        });
+    };
 });

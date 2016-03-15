@@ -17,22 +17,24 @@
                     'renderTrademark': true
                 });
                 Hagfro.constructMap('maps-section');
+                Hagfro.emailField();
             });
         </script>
 </head>
 <body>
-    <div class="page-main-content">
-        <input type="radio" name="type" value="familyhome" checked="checked"> Anmälan för familjehem<br>
-        <input type="radio" name="type" value="contactperson"> Anmälan för kontaktperson<br>
-
-        <div class="email-section signup">
-            <input type="text" name="forname" placeholder="Förnamn"><br>
-            <input type="text" name="lastname" placeholder="Efternamn"><br>
-            <input type="text" name="cellphone" placeholder="Telefon"><br>
-            <input type="text" name="email" placeholder="E-Post"><br>
-            <input type="text" name="zipcode" placeholder="Postnummer"><br>
+    <div class="page-main-content" style="padding-top:0px;">
+        <form action="http://formspree.io/pojahn@gmail.com" method="post" enctype="text/plain" class="email-section signup">
+            <input type="radio" name="type" value="familyhome" checked="checked"> Anmälan för familjehem<br>
+            <input type="radio" name="type" value="contactperson"> Anmälan för kontaktperson<br>
+            <br>
+            <input type="text" class="resetable" name="forname" placeholder="Förnamn"><br>
+            <input type="text" class="resetable" name="lastname" placeholder="Efternamn"><br>
+            <input type="text" class="resetable" name="cellphone" placeholder="Telefon"><br>
+            <input type="text" class="resetable" name="email" placeholder="E-Post"><br>
+            <input type="text" class="resetable" name="zipcode" placeholder="Postnummer"><br>
+            <input type="hidden" name="_subject" value="Intresseanmälan" />
             <input class="send-button" type="submit" value="Anmäl">
-        </div>
+        </form>
         <div class="clearer"></div>
     </div>
 </body>
