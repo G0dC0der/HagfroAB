@@ -48,7 +48,7 @@ $(function(){
         $('.page-content').append(pageContent);
 
         $('.footer-text').on('click', function(){
-            alert('Site created by Pojahn Moradi, HagFro AB collaborator.');
+            Hagfro.dialog('Site created by Pojahn Moradi, HagFro AB collaborator.', "OK");
         });
     };
 
@@ -70,11 +70,59 @@ $(function(){
         marker.setMap(map);
     };
 
-    Hagfro.emailField = function() {
-        var form = $('form');
-        $('.send-button').click(function(){
-            alert('Tack för intresset!');
-            $('.resetable').val('');
+    Hagfro.dialog = function(text, buttonText) {
+        $('body').prepend(se.hagfro.renderDialog({
+            text: text,
+            buttonText: buttonText
+        }).content);
+
+        $('html').prepend(se.hagfro.overlay({}).content);
+
+        $('.dialog-button').click(function(){
+            $('.dialog').remove();
+            $('.overlay').remove();
         });
+    };
+
+    Hagfro.emailField = function() {
+       var container = $('.email-section');
+       var sendButton = container.find('.send-button');
+
+       container.find('.send-button').click(function(e){
+            e.preventDefault();
+            sendButton.prop('disabled', true);
+            sendButton.val('Skickar...');
+            var obj = {};
+            $('.sendable').each(function(){
+                var ref = $(this);
+                if((ref.prop('type') === 'radio' && ref.is(':checked')) || ref.prop('type') !== 'radio') {
+                    obj[ref.prop('name')] = ref.prop('value');
+                }
+            });
+
+            $.ajax({
+                url: "http://formspree.io/pojahn@email.com",
+                method: "POST",
+                data: obj,
+                dataType: "json",
+                complete: function(data) {
+                    if(data.success) {
+                        container.find('.resetable').val('');
+                        Hagfro.dialog('Tack!', "OK");
+                    } else {
+                        Hagfro.dialog('Något gick fel. Vänligen försök igen.', "OK");
+                    }
+                },
+                complete: function() {
+                    sendButton.prop('disabled', false);
+                    sendButton.val('Skicka');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    Hagfro.dialog('Något gick fel. Vänligen försök igen.', "OK");
+                }
+            });
+       });
     };
 });

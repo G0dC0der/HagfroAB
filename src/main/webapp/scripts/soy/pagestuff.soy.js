@@ -48,3 +48,19 @@ se.hagfro.renderWelcome = function(opt_data, opt_ignored) {
 if (goog.DEBUG) {
   se.hagfro.renderWelcome.soyTemplateName = 'se.hagfro.renderWelcome';
 }
+
+
+se.hagfro.overlay = function(opt_data, opt_ignored) {
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div class="overlay"></div>');
+};
+if (goog.DEBUG) {
+  se.hagfro.overlay.soyTemplateName = 'se.hagfro.overlay';
+}
+
+
+se.hagfro.renderDialog = function(opt_data, opt_ignored) {
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div class="dialog"><span class="dialog-text">' + soy.$$escapeHtml(opt_data.text) + '</span><button class="dialog-button">' + soy.$$escapeHtml(opt_data.buttonText) + '</button></div>');
+};
+if (goog.DEBUG) {
+  se.hagfro.renderDialog.soyTemplateName = 'se.hagfro.renderDialog';
+}
