@@ -14,8 +14,8 @@ $(function(){
             pages: [
                 {
                     'title': 'Hem',
-                    'url': 'home.html',
-                    'selected': page === 'home.html'
+                    'url': 'index.html',
+                    'selected': page === 'index.html' || page.length === 0
                 },
                 {
                     'title': 'HagFro',
@@ -101,11 +101,11 @@ $(function(){
             });
 
             $.ajax({
-                url: "http://formspree.io/pojahn@email.com",
+                url: "http://formspree.io/info@hagfro.se",
                 method: "POST",
                 data: obj,
                 dataType: "json",
-                complete: function(data) {
+                success: function(data) {
                     if(data.success) {
                         container.find('.resetable').val('');
                         Hagfro.dialog('Tack!', "OK");
