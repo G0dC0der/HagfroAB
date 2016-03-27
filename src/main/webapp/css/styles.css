@@ -1,18 +1,60 @@
 html {
     font-family: 'Josefin Sans', sans-serif;
-    font-size:14px;
+    background-image: url("../img/background.png");
+    background-repeat: repeat;
+}
+
+@media only screen and (max-device-width: 480px) {
+    html {
+        font-size:16px;
+    }
+
+    .page {
+        width: 100%;
+    }
+
+    .short-line {
+      width: 99%;
+    }
+
+    .page-content {
+        width:98%;
+    }
+
+    .dialog{
+        transform: scale(2,2);
+    }
+}
+
+@media only screen and (min-device-width: 481px) {
+    html {
+        font-size:14px;
+    }
+
+    .page {
+        width: 800px;
+    }
+
+    .short-line {
+      width: 780px;
+    }
+
+    .page-content {
+        width:800px;
+    }
 }
 
 .page {
     margin: 0px auto;
     position: relative;
-    width: 800px;
     top: 0px;
     overflow: hidden;
     min-height:100%;
     background-color:rgb(250,250,250);
     margin-top:15px;
     padding:5px;
+    background-image: url(../img/repeat.png);
+    background-repeat: repeat;
 }
 
 .menu {
@@ -26,7 +68,7 @@ html {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(233, 233, 233);
+    background-color: rgba(162, 164, 171, 0.2);
 }
 
 .menu li {
@@ -47,12 +89,12 @@ html {
 }
 
 .menu li a:hover {
-    background-color: black;
+    background-color: #8696A3;
     color:white;
 }
 
 .tab-selected {
-    background-color: black;
+    background-color: #8696A3;
     color:white;
 }
 
@@ -146,7 +188,6 @@ html {
   background: #ddd;
   clear: both;
   float: none;
-  width: 780px;
   height: 1px;
   margin: 0 0 1.4em;
   border: none;
@@ -170,7 +211,6 @@ html {
 }
 
 .page-content {
-    width:800px;
     padding-left:10px;
 }
 
@@ -181,11 +221,12 @@ html {
 .read-more-element {
   background-color: rgb(240,240,240);
   float:left;
-  width:180px;
+  width:22%;
   padding:5px;
   height:240px;
   margin-right:10px;
   position: relative;
+  box-shadow: 2px 2px 2px rgba(180,180,180,255);
 }
 
 .read-more-title {
@@ -361,7 +402,7 @@ html {
 }
 
 .dialog {
-	  position: absolute;
+  position: fixed;
   width: 300px;
   height: 102px;
   z-index: 100;
@@ -370,4 +411,18 @@ html {
   margin: -100px 0 0 -150px;
   background-color:white;
   box-shadow:5px 5px 5px rgb(150, 150, 150);
+}
+
+.image-container {
+    padding: 1px;
+    border:1px solid #021a40;
+    margin-bottom: 30px;
+    padding: 1px;
+    max-height: 240px;
+}
+
+.image-pic {
+    width: 100%;
+    max-height: 240px;
+    opacity: .9;
 }

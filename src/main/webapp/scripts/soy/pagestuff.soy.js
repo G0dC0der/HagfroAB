@@ -11,7 +11,7 @@ if (typeof se.hagfro == 'undefined') { se.hagfro = {}; }
 
 
 se.hagfro.renderSite = function(opt_data, opt_ignored) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div class="page">' + ((opt_data.renderTrademark) ? se.hagfro.renderLogo(null) : '') + se.hagfro.renderHeader(opt_data) + ((opt_data.renderTrademark) ? se.hagfro.renderWelcome(null) : '') + '<div class="page-content"><div class="page-title">' + soy.$$escapeHtml(opt_data.title) + '</div><div class="short-line"></div></div><div class="clearer" style="padding-bottom:50px;"></div><div class="bottom-sapce"></div><div class="footer"><span class="footer-text">\u00A9 HagFro AB 2015</span></div></div>');
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div class="page">' + se.hagfro.renderLogo(null) + se.hagfro.renderHeader(opt_data) + ((opt_data.renderWelcomeImage) ? se.hagfro.renderImage(null) : '') + ((opt_data.renderTrademark) ? se.hagfro.renderWelcome(null) : '') + '<div class="page-content">' + ((opt_data.title != null) ? '<div class="page-title">' + soy.$$escapeHtml(opt_data.title) + '</div><div class="short-line"></div>' : '') + '</div><div class="clearer" style="padding-bottom:50px;"></div><div class="bottom-sapce"></div><div class="footer"><span class="footer-text">\u00A9 HagFro AB 2015</span></div></div>');
 };
 if (goog.DEBUG) {
   se.hagfro.renderSite.soyTemplateName = 'se.hagfro.renderSite';
@@ -20,11 +20,11 @@ if (goog.DEBUG) {
 
 se.hagfro.renderHeader = function(opt_data, opt_ignored) {
   var output = '<div class="menu"><ul>';
-  var pageList28 = opt_data.pages;
-  var pageListLen28 = pageList28.length;
-  for (var pageIndex28 = 0; pageIndex28 < pageListLen28; pageIndex28++) {
-    var pageData28 = pageList28[pageIndex28];
-    output += (pageData28.selected) ? '<li class="tab-selected"><span class="fake-a">' + soy.$$escapeHtml(pageData28.title) + '</span></li>' : '<li><a href="' + soy.$$escapeHtmlAttribute(soy.$$filterNormalizeUri(pageData28.url)) + '">' + soy.$$escapeHtml(pageData28.title) + '</a></li>';
+  var pageList33 = opt_data.pages;
+  var pageListLen33 = pageList33.length;
+  for (var pageIndex33 = 0; pageIndex33 < pageListLen33; pageIndex33++) {
+    var pageData33 = pageList33[pageIndex33];
+    output += (pageData33.selected) ? '<li class="tab-selected"><span class="fake-a">' + soy.$$escapeHtml(pageData33.title) + '</span></li>' : '<li><a href="' + soy.$$escapeHtmlAttribute(soy.$$filterNormalizeUri(pageData33.url)) + '">' + soy.$$escapeHtml(pageData33.title) + '</a></li>';
   }
   output += '</ul></div><hr class="separator"/>';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
@@ -39,6 +39,14 @@ se.hagfro.renderLogo = function(opt_data, opt_ignored) {
 };
 if (goog.DEBUG) {
   se.hagfro.renderLogo.soyTemplateName = 'se.hagfro.renderLogo';
+}
+
+
+se.hagfro.renderImage = function(opt_data, opt_ignored) {
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div class="image-container"><img class="image-pic" src="img/kids.jpg"></div>');
+};
+if (goog.DEBUG) {
+  se.hagfro.renderImage.soyTemplateName = 'se.hagfro.renderImage';
 }
 
 

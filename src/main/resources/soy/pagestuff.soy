@@ -4,23 +4,28 @@
  * @param pages An array of data
  * @param title The title of the page
  * @param renderTrademark boolean
+ * @param renderWelcomeImage boolean
  */
 {template .renderSite}
     <div class="page">
-        {if $renderTrademark}
-            {call .renderLogo /}
-        {/if}
+        {call .renderLogo /}
         {call .renderHeader}
             {param pages: $pages/}
         {/call}
+
+        {if $renderWelcomeImage}
+            {call .renderImage /}
+        {/if}
 
         {if $renderTrademark}
             {call .renderWelcome /}
         {/if}
 
         <div class="page-content">
-            <div class="page-title">{$title}</div>
-            <div class="short-line"></div>
+            {if $title != null}
+                <div class="page-title">{$title}</div>
+                <div class="short-line"></div>
+            {/if}
         </div>
 
         <div class="clearer" style="padding-bottom:50px;"></div>
@@ -53,6 +58,15 @@
 {template .renderLogo}
     <div class="hagfro-logo">
         <img src="img/logo.png"/>
+    </div>
+{/template}
+
+/**
+ * Render image of kids at the top.
+ */
+{template .renderImage}
+    <div class="image-container">
+        <img class="image-pic" src="img/kids.jpg">
     </div>
 {/template}
 

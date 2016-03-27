@@ -11,6 +11,7 @@ $(function(){
         body.html(se.hagfro.renderSite({
             title: params.title,
             renderTrademark: params.renderTrademark,
+            renderWelcomeImage: params.renderWelcomeImage,
             pages: [
                 {
                     'title': 'Hem',
@@ -95,6 +96,12 @@ $(function(){
             var obj = {};
             $('.sendable').each(function(){
                 var ref = $(this);
+
+                if(!ref.val().length) {
+                    Hagfro.dialog('Ett eller fler av dom obligatoriska fälten är tomma. Vänligen försök igen.', "OK");
+                    return false;
+                }
+
                 if((ref.prop('type') === 'radio' && ref.is(':checked')) || ref.prop('type') !== 'radio') {
                     obj[ref.prop('name')] = ref.prop('value');
                 }
