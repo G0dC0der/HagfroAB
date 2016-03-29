@@ -51,6 +51,27 @@ $(function(){
         $('.footer-text').on('click', function(){
             Hagfro.dialog('Site created by Pojahn Moradi, HagFro AB collaborator.', "OK");
         });
+
+        if(params.renderWelcomeImage) {
+            Hagfro.initSlideshow();
+        }
+    };
+
+    Hagfro.initSlideshow = function() {
+        var img1 = $('.kid1');
+        var img2 = $('.kid2');
+        var func = function(){};
+        var fadeTime = 5000;
+
+        setInterval(function(){
+            img1.fadeOut(fadeTime);
+            img2.fadeIn(fadeTime);
+        }, fadeTime * 2);
+
+        setInterval(function(){
+            img2.fadeOut(fadeTime);
+            img1.fadeIn(fadeTime);
+        }, fadeTime);
     };
 
     Hagfro.getPage = function() {
@@ -91,14 +112,16 @@ $(function(){
 
        container.find('.send-button').click(function(e){
             e.preventDefault();
-            sendButton.prop('disabled', true);
-            sendButton.val('Skickar...');
+
             var obj = {};
+            var skip = false;
+
             $('.sendable').each(function(){
                 var ref = $(this);
 
                 if(!ref.val().length) {
                     Hagfro.dialog('Ett eller fler av dom obligatoriska fälten är tomma. Vänligen försök igen.', "OK");
+                    skip = true;
                     return false;
                 }
 
@@ -107,8 +130,17 @@ $(function(){
                 }
             });
 
+            if(skip) {
+                return;
+            }
+
+            sendButton.prop('disabled', true);
+            sendButton.val('Skickar...');
+            console.log("Sending data:");
+            console.log(obj);
+
             $.ajax({
-                url: "http://formspree.io/info@hagfro.se",
+                url: "https://formspree.io/info@hagfro.se",
                 method: "POST",
                 data: obj,
                 dataType: "json",

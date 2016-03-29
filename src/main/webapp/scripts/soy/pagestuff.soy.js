@@ -43,7 +43,7 @@ if (goog.DEBUG) {
 
 
 se.hagfro.renderImage = function(opt_data, opt_ignored) {
-  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div class="image-container"><img class="image-pic" src="img/kids.jpg"></div>');
+  return soydata.VERY_UNSAFE.ordainSanitizedHtml('<div class="image-container"><img class="image-pic kid1" src="img/kids2.jpg"/><img class="image-pic kid2" src="img/kids.jpg"/></div>');
 };
 if (goog.DEBUG) {
   se.hagfro.renderImage.soyTemplateName = 'se.hagfro.renderImage';
